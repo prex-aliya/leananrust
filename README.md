@@ -1,10 +1,9 @@
-Learning Rust
-=============
+# Learning Rust
 
 This is my journey learning rust.
 
 # Details of Each
-<details><summary>0001 Login Details</summary>
+## <details><summary>0001 Login Details</summary>
 
 [easy] challenge #1
 
