@@ -3,7 +3,7 @@
 This is my journey learning rust.
 
 # Details of Each
-## <details><summary>0001 Login Details</summary>
+<details><summary>0001 Login Details</summary>
 
 [easy] challenge #1
 
@@ -16,7 +16,8 @@ your name is (blank), you are (blank) years old, and your username is (blank)
 for extra credit, have the program log this information in a file to be accessed later.
 </details>
 
-## <details><summary>0002 FMA Phisics Calculator</summary>
+
+<details><summary>0002 FMA Phisics Calculator</summary>
 [easy] challenge #2
 
 Hello, coders! An important part of programming is being able to apply your programs,
@@ -29,7 +30,8 @@ EXTRA CREDIT: make the calculator have multiple functions!
 Not only should it be able to calculate F = M * A, but also A = F/M, and M = F/A!
 </details>
 
-## <details><summary>0003 FMA Phisics Calculator</summary>
+
+<details><summary>0003 FMA Phisics Calculator</summary>
 [2/11/2012] Challenge #3 [easy]
 
 Welcome to cipher day!
@@ -40,7 +42,8 @@ This cipher can ignore numbers, symbols, and whitespace.
 for extra credit, add a "decrypt" function to your program!
 </details>
 
-## <details><summary>0004 password generator</summary>
+
+<details><summary>0004 password generator</summary>
 [2/12/2012] Challenge #4 [easy]
 
 You're challenge for today is to create a random password generator!
