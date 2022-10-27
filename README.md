@@ -17,6 +17,32 @@ for extra credit, have the program log this information in a file to be accessed
 
 </details>
 
+## <details><summary>0002 FMA Phisics Calculator</summary>
+[easy] challenge #2
+
+Hello, coders! An important part of programming is being able to apply your programs,
+so your challenge for today is to create a calculator application that has use in your life.
+It might be an interest calculator, or it might be
+something that you can use in the classroom.
+For example, if you were in physics class, you might want to make a F = M * A calc.
+
+EXTRA CREDIT: make the calculator have multiple functions!
+Not only should it be able to calculate F = M * A, but also A = F/M, and M = F/A!
+</details>
+
+## <details><summary>0003 FMA Phisics Calculator</summary>
+[2/11/2012] Challenge #3 [easy]
+
+Welcome to cipher day!
+
+write a program that can encrypt texts with an alphabetical caesar cipher.
+This cipher can ignore numbers, symbols, and whitespace.
+
+for extra credit, add a "decrypt" function to your program!
+</details>
+
+## <details><summary>0003 FMA Phisics Calculator</summary>
+</details>
 # Resources
 
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) : Challenges to help learn
