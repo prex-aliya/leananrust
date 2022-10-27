@@ -14,7 +14,6 @@ have it tell them the information back, in the format:
 your name is (blank), you are (blank) years old, and your username is (blank)
 
 for extra credit, have the program log this information in a file to be accessed later.
-
 </details>
 
 ## <details><summary>0002 FMA Phisics Calculator</summary>
