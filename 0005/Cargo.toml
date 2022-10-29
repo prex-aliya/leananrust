@@ -7,3 +7,5 @@ edition = "2021"
 
 [dependencies]
 rust-ini = "0.17"
+argon2 = "0.4"
+rand_core = { version = "0.6", features = ["std"] }

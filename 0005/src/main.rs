@@ -3,11 +3,11 @@ use ini::Ini;
 use std::env;
 use std::io;
 
+const account_file: String = "resources/accounts.ini";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let b = std::path::Path::new("accounts.ini").exists(); /* file exist */
-    //let output = format!("name:{} age:{} user:{}", name, age, user);
+    let b = std::path::Path::new(account_file).exists(); /* file exist */
 
     if b == true {
         println!("\nlogin: ");
@@ -18,25 +18,28 @@ fn main() {
 
         try_password(login, password);
     } else {
-        println!("Usage: [FILE]");
+        println!("Usage: accounts.ini");
         println!(" This is a Program That Shows");
         println!(" A Secret When Unlocked");
+        println!(" Needs accounts.ini to be in present working directory");
     }
 }
 
 fn try_password(tlogin: String, tpass: String) {
-    let conf = Ini::load_from_file("accounts.ini").unwrap();
+    let conf = Ini::load_from_file(account_file).unwrap();
 
     let user = conf.section(Some(tlogin)).unwrap();
     let password = user.get("password").unwrap();
 
     if password == tpass {
-        println!("Password is Correct\nReveling Secret");
         let secret = user.get("secret").unwrap();
-        println!("\n\n{}\n\n", secret);
+        let b = std::path::Path::new(secret).exists();
+        /* file exist */
+        println!("{}", b);
     }
 }
 
+/* Streamlined Get Input*/
 fn get_input() -> String {
     let mut answer = String::new();
     io::stdin()
