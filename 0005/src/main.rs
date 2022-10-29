@@ -9,7 +9,7 @@ fn main() {
     let b = std::path::Path::new("accounts.ini").exists(); /* file exist */
     //let output = format!("name:{} age:{} user:{}", name, age, user);
 
-    if args.len() == 1 && std::path::Path::new("accounts.ini").exists() == true || b == true {
+    if b == true {
         println!("\nlogin: ");
         let login = get_input();
 
