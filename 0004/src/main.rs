@@ -1,11 +1,8 @@
-extern crate rand;
-use rand::prelude::*;
+use fastrand;
 
 fn main() {
-    let mut rng = rand::thread_rng();
-
-    for _x in 0..5{
-        let num: u8 = rng.gen_range(0..10);
-        println!("Random number between 0 and 9: {}", num);
+    for i in 1..12 {
+        let rand_num = fastrand::i32(-23..43);
+        println!("{}", rand_num);
     }
 }
