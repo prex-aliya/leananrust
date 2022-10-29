@@ -40,7 +40,8 @@ fn main() {
 
         println!("{outputtext}");
     } else {
-        println!("Usage: [SHIFT]... [STRING]...");
+        println!("Usage: [SHIFT] [STRING]...\n
+            To Decrypt a String Take the Inverse Shift");
     }
 }
 
