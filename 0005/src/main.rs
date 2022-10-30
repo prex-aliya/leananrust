@@ -1,13 +1,30 @@
+/* [SOURCES]
+ * https://kerkour.com/rust-file-encryption-chacha20poly1305-argon2
+ *
+ */
 extern crate ini;
-use ini::Ini;
-use std::env;
-use std::io;
+extern crate argon2;
 
-const account_file: String = "resources/accounts.ini";
+use argon2::{
+    password_hash::{
+        rand_core::OsRng,
+        PasswordHash, PasswordHasher, PasswordVerifier, SaltString
+    },
+    Argon2
+};
+use ini::Ini;
+use rand::{rngs::OsRng, RngCore};
+use std::{
+    io,
+    env,
+    fs::File,
+};
+
+
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let b = std::path::Path::new(account_file).exists(); /* file exist */
+    let b = std::path::Path::new("accounts.ini").exists(); /* file exist */
 
     if b == true {
         println!("\nlogin: ");
@@ -26,7 +43,7 @@ fn main() {
 }
 
 fn try_password(tlogin: String, tpass: String) {
-    let conf = Ini::load_from_file(account_file).unwrap();
+    let conf = Ini::load_from_file("accounts.ini").unwrap();
 
     let user = conf.section(Some(tlogin)).unwrap();
     let password = user.get("password").unwrap();
