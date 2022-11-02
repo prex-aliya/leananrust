@@ -24,11 +24,17 @@ fn main() {
             println!("password: ");
             let password = get_input();
 
-            let mut b = secret_reveal(login, password);
-            if b == true {
-                break;
+            let mut user = test_user(login);
+            if user_true == true {
+                let mut b = test_password(login, password);
+                if b == true {
+                    break;
+                } else {
+                    println!("Password is invalid!");
+                }
+            } else {
+                println!("Username is invalid!");
             }
-
         }
     } else {
         println!("Usage: accounts.ini");
@@ -38,28 +44,23 @@ fn main() {
     }
 }
 
-fn secret_reveal(tlogin: String, tpass: String) -> bool {
+fn test_password(tlogin: String, tpass: String) -> bool {
     let conf = Ini::load_from_file("accounts.ini").unwrap();
 
     let user = conf.section(Some(tlogin)).unwrap();
-    let username_truth: bool = test_user(tlogin);
-    if username_truth == true {
-        let password = user.get("password").unwrap();
+    let password = user.get("password").unwrap();
 
-        if password == tpass {
-            println!("[PASS] Password is correct; revealing secret\n");
-            let secret = user.get("secret").unwrap();
-            println!("{}", secret);
-            return true;
-        } else {
-            println!("[FAIL] Password is incorrect");
-            return false;
-        }
+    if password == tpass {
+        println!("[PASS] Password is correct; revealing secret\n");
+        let secret = user.get("secret").unwrap();
+        println!("{}", secret);
+        return true;
     } else {
+        println!("[FAIL] Password is incorrect");
         return false;
     }
 }
-fn test_user(try_user.as_ref().unwrap().path(): String) -> bool {
+fn test_user(try_user: String) -> bool {
     let conf = Ini::load_from_file("accounts.ini").unwrap();
 
     let users = conf.section(Some("Users")).unwrap();
@@ -70,7 +71,6 @@ fn test_user(try_user.as_ref().unwrap().path(): String) -> bool {
         .expect("Wanted a number");
 
     let mut username_truth: bool = false;
-
     for i in 0..num_i {
         let mut username = users.get(i.to_string()).unwrap();
         if try_user == username {
