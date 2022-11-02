@@ -10,8 +10,6 @@ use std::{
     io,
 };
 
-struct String_Bool(String, bool);
-
 
 
 fn main() {
@@ -26,17 +24,8 @@ fn main() {
             println!("password: ");
             let password = get_input();
 
-            let mut user: String_Bool = test_user(login);
-            if user == true {
-                let mut b = test_password(login, password);
-                if b == true {
-                    break;
-                } else {
-                    println!("Password is invalid!");
-                }
-            } else {
-                println!("Username is invalid!");
-            }
+            let secret_rev = test_password(login, password);
+            if secret_rev == true { break; }
         }
     } else {
         println!("Usage: accounts.ini");
@@ -53,40 +42,12 @@ fn test_password(tlogin: String, tpass: String) -> bool {
     let password = user.get("password").unwrap();
 
     if password == tpass {
-        println!("[PASS] Password is correct; revealing secret\n");
         let secret = user.get("secret").unwrap();
         println!("{}", secret);
         return true;
     } else {
-        println!("[FAIL] Password is incorrect");
+        println!("[FAIL] Password is Incorrect!");
         return false;
-    }
-}
-fn test_user(try_user: String) -> bool {
-    let conf = Ini::load_from_file("accounts.ini").unwrap();
-
-    let users = conf.section(Some("Users")).unwrap();
-    let num = users.get("num").unwrap();
-    let num_i: i32 = num
-        .trim()
-        .parse()
-        .expect("Wanted a number");
-
-    let mut username_truth: bool = false;
-    for i in 0..num_i {
-        let mut username = users.get(i.to_string()).unwrap();
-        if try_user == username {
-            println!("Username: {}", username);
-            username_truth = true;
-            break;
-        } else {
-            username_truth = false;
-        }
-    }
-    if username_truth == true {
-
-    } else {
-        return 
     }
 }
 
