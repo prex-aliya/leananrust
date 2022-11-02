@@ -10,6 +10,8 @@ use std::{
     io,
 };
 
+struct String_Bool(String, bool);
+
 
 
 fn main() {
@@ -24,8 +26,8 @@ fn main() {
             println!("password: ");
             let password = get_input();
 
-            let mut user = test_user(login);
-            if user_true == true {
+            let mut user: String_Bool = test_user(login);
+            if user == true {
                 let mut b = test_password(login, password);
                 if b == true {
                     break;
@@ -81,7 +83,11 @@ fn test_user(try_user: String) -> bool {
             username_truth = false;
         }
     }
-    return username_truth;
+    if username_truth == true {
+
+    } else {
+        return 
+    }
 }
 
 /* Streamlined Get Input*/
