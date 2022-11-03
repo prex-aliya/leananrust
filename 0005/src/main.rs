@@ -38,7 +38,14 @@ fn main() {
 fn test_password(tlogin: String, tpass: String) -> bool {
     let conf = Ini::load_from_file("accounts.ini").unwrap();
 
-    let user = conf.section(Some(tlogin)).unwrap();
+    let mut user = conf.section(Some("dag")).unwrap();
+    match conf.section(Some(tlogin)).unwrap() {
+        Ok(val) => user = val,
+        Err(_err) => {
+            println!("Invalid Password");
+            return false;
+        }
+    }
     let password = user.get("password").unwrap();
 
     if password == tpass {
