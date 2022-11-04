@@ -12,6 +12,48 @@ use std::{
 
 
 
+/* Streamlined Get Input*/
+fn trim_newline(s: &mut String) {
+    if s.ends_with('\n') {
+        s.pop();
+        if s.ends_with('\r') {
+            s.pop();
+        }
+    }
+}
+fn get_input() -> String {
+    let mut answer = String::new();
+    io::stdin()
+        .read_line(&mut answer)
+        .expect("Failed to read stdin");
+
+    trim_newline(&mut answer);
+    return answer;
+}
+
+fn test_password(tlogin: String, tpass: String) -> bool {
+    let conf = Ini::load_from_file("accounts.ini").unwrap();
+
+    let user; // = conf.section(Some("dag")).unwrap();
+    match conf.section(Some(tlogin)) {
+        Some(val) => user = val,
+        None => {
+            println!("[FAIL] Invalid Username!");
+            return false;
+        }
+    }
+    let password = user.get("password").unwrap();
+
+    if password == tpass {
+        let secret = user.get("secret").unwrap();
+        println!("\n{}\n", secret);
+        return true;
+    } else {
+        println!("[FAIL] Invalid Password!");
+        return false;
+    }
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let b = std::path::Path::new("accounts.ini").exists(); /* file exist */
@@ -32,47 +74,5 @@ fn main() {
         println!(" This is a Program That Shows");
         println!(" A Secret When Unlocked");
         println!(" Needs accounts.ini to be in present working directory");
-    }
-}
-
-fn test_password(tlogin: String, tpass: String) -> bool {
-    let conf = Ini::load_from_file("accounts.ini").unwrap();
-
-    let mut user = conf.section(Some("dag")).unwrap();
-    match conf.section(Some(tlogin)).unwrap() {
-        Ok(val) => user = val,
-        Err(_err) => {
-            println!("Invalid Password");
-            return false;
-        }
-    }
-    let password = user.get("password").unwrap();
-
-    if password == tpass {
-        let secret = user.get("secret").unwrap();
-        println!("{}", secret);
-        return true;
-    } else {
-        println!("[FAIL] Password is Incorrect!");
-        return false;
-    }
-}
-
-/* Streamlined Get Input*/
-fn get_input() -> String {
-    let mut answer = String::new();
-    io::stdin()
-        .read_line(&mut answer)
-        .expect("Failed to read stdin");
-
-    trim_newline(&mut answer);
-    return answer;
-}
-fn trim_newline(s: &mut String) {
-    if s.ends_with('\n') {
-        s.pop();
-        if s.ends_with('\r') {
-            s.pop();
-        }
     }
 }
