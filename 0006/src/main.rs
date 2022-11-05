@@ -1,4 +1,4 @@
-use std::env;
+use std::{ env, io, };
 
 const PROGRAMENAME: &str = "numberline";
 
@@ -20,19 +20,70 @@ fn get_input() -> String {
     trim_newline(&mut answer);
     return answer;
 }
+fn get_number_input() -> i16 {
+    loop {
+        let input = get_input();
+        let input: i16 = match input.trim().parse() {
+            Ok(num) => {
+                return num;
+            },
+            Err(_) => {
+                continue
+            },
+        };
+    }
+}
 
-fn print_line() {
+fn print_line(points: &mut [i16; 4]) {
+    points.sort(); /* Sort from smallest to biggest */
+    let biggest: i16 = points[3];
+    //println!("{}", points[3]);
 
+    while points[0] == 0 { /* remove zero */
+        for i in 0..3 {
+            points[i] = points[i+1];
+            //println!("{}{:?}", i, points);
+        }
+        points[3] = 0;
+    }
+
+    let smallest: i16 = points[0];
+    println!("Points Input: {:?}", points);
+
+    //println!("{:-^1$}", "", 40-4);
+    for _ in smallest..biggest {
+        print!("--|");
+    }
+    print!("--|\n");
+
+
+    //for i in smallest..biggest {
+    for i in smallest..biggest+1 {
+        if points[0] == i {
+            print!("\x1b[31m{:3}\x1b[0m", i);
+            while points[0] == i { /* remove zero */
+                for i in 0..3 { points[i] = points[i+1]; }
+            }
+            points[3] = 0;
+        } else {
+            print!("{:3}", i);
+        }
+    }
+    print!("\n");
+    println!("{:?}", points);
 }
 
 fn main() {
     let args: Vec<String> = env::args().collect();
+    let mut points: [i16; 4];
 
     if args.len() == 2 {
         if args[1] == "--help" {
             println!("Usage: {} [--help/-n] [file]", PROGRAMENAME);
             println!("  --help      display this help and exit");
             println!("  -n          no output to file if empty");
+            println!("  -n          no output to file if empty");
+            println!("input 0 for it to not to graph");
             return;
         }
     }
@@ -58,5 +109,14 @@ fn main() {
     }}}
      */
 
-    print_line();
+    /* Get Points Input */
+    points = [0, 1, 4, 6];
+    for i in 0..4 {
+        println!("Enter the {} number.", i+1);
+        points[i] = get_number_input();
+    }
+
+
+    /* Print Line */
+    print_line(&mut points); /* unable to use zero */
 }
