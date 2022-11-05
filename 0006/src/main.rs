@@ -99,28 +99,6 @@ fn main() {
     }
 
 
-    /* probably cant put in
-    {{{
-    savelocation = arg[2] if it exists
-
-    if
-        savelocation is empty,
-        then do nothing skip
-    else if
-        savelocation is not empty
-        then call write_to_dir( filename/dir, what to write )
-    else
-        ask if
-            want to saver
-            askes takes input and parses
-            puts into savelocation
-        else
-            do nothing
-    done
-    }}}
-     */
-
-
     /* Print Line */
     print_line(&mut points); /* unable to use zero */
 }
