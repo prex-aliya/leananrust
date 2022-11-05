@@ -52,21 +52,21 @@ fn print_line(points: &mut [i16; 4]) {
 
     //println!("{:-^1$}", "", 40-4);
     for _ in smallest..biggest {
-        print!("--|");
+        print!("---|");
     }
-    print!("--|\n");
+    print!("---|\n");
 
 
     //for i in smallest..biggest {
     for i in smallest..biggest+1 {
         if points[0] == i {
-            print!("\x1b[31m{:3}\x1b[0m", i);
+            print!("\x1b[31m{:4}\x1b[0m", i);
             while points[0] == i { /* remove zero */
                 for i in 0..3 { points[i] = points[i+1]; }
             }
             points[3] = 0;
         } else {
-            print!("{:3}", i);
+            print!("{:4}", i);
         }
     }
     print!("\n");
@@ -80,12 +80,24 @@ fn main() {
         if args[1] == "--help" {
             println!("Usage: {} [--help/-n] [file]", PROGRAMENAME);
             println!("  --help      display this help and exit");
-            println!("  -n          no output to file if empty");
-            println!("  -n          no output to file if empty");
+            println!("  -i          input for points");
+            //println!("  -n          no output to file if empty");
             println!("input 0 for it to not to graph");
             return;
+        } else if args[1] == "-i" {
+            for i in 2..5 {
+                args[i] = points[];
+            }
+        }
+    } else {
+        /* Get Points Input */
+        points = [0, 1, 4, 6];
+        for i in 0..4 {
+            println!("Enter the {} number.", i+1);
+            points[i] = get_number_input();
         }
     }
+
 
     /* probably cant put in
     {{{
@@ -107,13 +119,6 @@ fn main() {
     done
     }}}
      */
-
-    /* Get Points Input */
-    points = [0, 1, 4, 6];
-    for i in 0..4 {
-        println!("Enter the {} number.", i+1);
-        points[i] = get_number_input();
-    }
 
 
     /* Print Line */
