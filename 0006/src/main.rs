@@ -73,10 +73,10 @@ fn print_line(points: &mut [i16; 4]) {
 }
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let mut points: [i16; 4];
+    let mut args: Vec<String> = env::args().collect();
+    let mut points: [i16; 4] = [0, 0, 0, 0];
 
-    if args.len() == 2 {
+    if args.len() >= 2 {
         if args[1] == "--help" {
             println!("Usage: {} [--help/-n] [file]", PROGRAMENAME);
             println!("  --help      display this help and exit");
@@ -85,10 +85,11 @@ fn main() {
             println!("input 0 for it to not to graph");
             return;
         } else if args[1] == "-i" {
-            for i in 2..5 {
-                args[i] = points[i-2];
-                println!("{:?}",points);
+            for i in 2..args.len() {
+                let num: i16 = args[i].parse().unwrap();
+                points[i-2] = num;
             }
+            println!("{:?}",points);
         }
     } else {
         /* Get Points Input */
