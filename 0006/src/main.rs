@@ -70,7 +70,6 @@ fn print_line(points: &mut [i16; 4]) {
         }
     }
     print!("\n");
-    println!("{:?}", points);
 }
 
 fn main() {
