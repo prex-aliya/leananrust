@@ -86,7 +86,8 @@ fn main() {
             return;
         } else if args[1] == "-i" {
             for i in 2..5 {
-                args[i] = points[];
+                args[i] = points[i-2];
+                println!("{:?}",points);
             }
         }
     } else {
