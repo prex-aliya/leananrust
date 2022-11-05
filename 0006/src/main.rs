@@ -47,18 +47,35 @@ fn print_line(points: &mut [i16; 4]) {
         points[3] = 0;
     }
 
-    let smallest: i16 = points[0];
-    println!("Points Input: {:?}", points);
+    println!("Points Input: {:?}", points); /* Tells User
+                                            There Points */
+    let begin: i16;
+    let endin: i16;
+    if points[0] >= -10 && biggest <= 10 {
+        begin = -10;
+        endin = 10;
+    } else if points[0] >= 1 && biggest < 20 {
+        begin = 0;
+        endin = 20;
+    } else {
+        begin = points[0];
+        endin = biggest;
+    }
+    /*
+     * unable to do negative -20 to 0
+     *  if biggest and smallest are in the
+     *  negatives :(
+     */
 
-    //println!("{:-^1$}", "", 40-4);
-    for _ in smallest..biggest {
+    for _ in begin..endin {
         print!("---|");
     }
     print!("---|\n");
 
 
     //for i in smallest..biggest {
-    for i in smallest..biggest+1 {
+    // changed to stop adding more not needed variables
+    for i in begin..endin+1 { /* +1 for for loop */
         if points[0] == i {
             print!("\x1b[31m{:4}\x1b[0m", i);
             while points[0] == i { /* remove zero */
@@ -73,7 +90,7 @@ fn print_line(points: &mut [i16; 4]) {
 }
 
 fn main() {
-    let mut args: Vec<String> = env::args().collect();
+    let args: Vec<String> = env::args().collect();
     let mut points: [i16; 4] = [0, 0, 0, 0];
 
     if args.len() >= 2 {
