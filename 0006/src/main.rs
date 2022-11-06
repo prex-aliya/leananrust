@@ -82,24 +82,31 @@ fn print_line(points: &mut [i16; 4]) {
                 for i in 0..3 { points[i] = points[i+1]; }
             }
             points[3] = 0;
+        } else if threw_b == true {
+
+
         } else {
             print!("{:4}", i);
         }
     }
     print!("\n");
 }
+fn print_help() {
+    println!("Usage: {} [--help/-n] [file]", PROGRAMENAME);
+    println!("  --help      display this help and exit");
+    println!("  -i          input for points");
+    //println!("  -n          no output to file if empty");
+    println!("input 0 for it to not to graph");
+}
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let mut points: [i16; 4] = [0, 0, 0, 0];
+    let threw_b: bool;
 
     if args.len() >= 2 {
         if args[1] == "--help" {
-            println!("Usage: {} [--help/-n] [file]", PROGRAMENAME);
-            println!("  --help      display this help and exit");
-            println!("  -i          input for points");
-            //println!("  -n          no output to file if empty");
-            println!("input 0 for it to not to graph");
+            print_help();
             return;
         } else if args[1] == "-i" {
             for i in 2..args.len() {
@@ -107,6 +114,12 @@ fn main() {
                 points[i-2] = num;
             }
             println!("{:?}",points);
+        } else {
+            print_help();
+            return;
+        }
+        if args[1] == "-t" || args[6] == "-t" {
+            threw_b == true
         }
     } else {
         /* Get Points Input */
