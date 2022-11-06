@@ -4,13 +4,12 @@ This is my journey learning rust, and the projects that I have made along this j
 
 To Build Use:
 
-```
-cargo run
-```
+        cargo run
+
 in the directory that you want to compile.
 
 # Details of Each
-## Login Details
+- Login Details
 <details><summary>0001</summary>
 
 [easy] challenge #1
