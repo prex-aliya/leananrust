@@ -98,11 +98,15 @@ fn print_help() {
     //println!("  -n          no output to file if empty");
     println!("input 0 for it to not to graph");
 }
+fn threw(f: i8, t: i8) {
+}
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let mut points: [i16; 4] = [0, 0, 0, 0];
     let threw_b: bool;
+    let greater: i16;
+    let lesser: i16;
 
     if args.len() >= 2 {
         if args[1] == "--help" {
@@ -119,7 +123,19 @@ fn main() {
             return;
         }
         if args[1] == "-t" || args[6] == "-t" {
-            threw_b == true
+            if args[6] == "-t" {
+                let f: i8 = 7;
+                let t: i8 = 8;
+            } else if args[1] {
+                let f: i8 = 7;
+                let t: i8 = 8;
+            }
+
+            if args[f].to_lowercase() == "greater" ||
+            args[f].to_lowercase() == "great" ||
+            args[f].to_lowercase() == "g" {
+                greater = args[t];
+            }
         }
     } else {
         /* Get Points Input */
