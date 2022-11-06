@@ -2,7 +2,12 @@
 
 This is my journey learning rust, and the projects that I have made along this journey
 
+To Build Use:
 
+```
+cargo run
+```
+in the directory that you want to compile.
 
 # Details of Each
 ## Login Details
@@ -74,6 +79,18 @@ for even more extra credit, break into your own program :)
 
 ## Number Line Print
 <details><summary>0006</summary>
+This is a challenge I have formulated while my child was
+learning his number lines.
+
+I enscribed a quick note in my journel and seemed possible.
+
+So the challenge is to get points up to four and be able to
+graph them on a number line.
+
+BONUS if you can do negatives
+
+ectra BONUS if you can get variables through another
+like >3, witch prints all that is greater, upto 10;
 </details>
 # Resources
 
