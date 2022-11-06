@@ -34,7 +34,9 @@ fn get_number_input() -> i16 {
     }
 }
 
-fn print_line(points: &mut [i16; 4]) {
+fn print_line(points: &mut [i16; 4], greater: bool, lesser: bool) {
+    let mediator = points[0];
+
     points.sort(); /* Sort from smallest to biggest */
     let biggest: i16 = points[3];
     //println!("{}", points[3]);
@@ -82,9 +84,10 @@ fn print_line(points: &mut [i16; 4]) {
                 for i in 0..3 { points[i] = points[i+1]; }
             }
             points[3] = 0;
-        } else if threw_b == true {
-
-
+        } else if greater == true && mediator <= i {
+            print!("\x1b[34m{:4}\x1b[0m", i);
+        } else if lesser == true && mediator >= i {
+            print!("\x1b[34m{:4}\x1b[0m", i);
         } else {
             print!("{:4}", i);
         }
@@ -92,51 +95,67 @@ fn print_line(points: &mut [i16; 4]) {
     print!("\n");
 }
 fn print_help() {
-    println!("Usage: {} [--help/-n] [file]", PROGRAMENAME);
-    println!("  --help      display this help and exit");
-    println!("  -i          input for points");
+    println!("Usage: {} [--help/-n] []..", PROGRAMENAME);
+    println!("  --help              display this help and exit");
+    println!("  -i  [num] [] [] []  input for points");
+    println!("  -t  [g/l] [num]     for to a greater or to a lesser like: x>4");
     //println!("  -n          no output to file if empty");
     println!("input 0 for it to not to graph");
+    println!(" 0 for it to not to graph.");
+    println!("use only one at time.");
 }
-fn threw(f: i8, t: i8) {
-}
+
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let mut points: [i16; 4] = [0, 0, 0, 0];
-    let threw_b: bool;
-    let greater: i16;
-    let lesser: i16;
+    let mut greater: bool = false;
+    let mut lesser: bool = false;
+    let mut points_input = 4;
+    let mut threw_input = 1;
 
-    if args.len() >= 2 {
-        if args[1] == "--help" {
-            print_help();
-            return;
-        } else if args[1] == "-i" {
-            for i in 2..args.len() {
-                let num: i16 = args[i].parse().unwrap();
-                points[i-2] = num;
-            }
-            println!("{:?}",points);
-        } else {
-            print_help();
-            return;
+    for i in 0..4 {
+        println!("{}", i);
+        if args[i] == "-i" {
+            points_input = 3;
         }
-        if args[1] == "-t" || args[6] == "-t" {
-            if args[6] == "-t" {
-                let f: i8 = 7;
-                let t: i8 = 8;
-            } else if args[1] {
-                let f: i8 = 7;
-                let t: i8 = 8;
-            }
+        if args[i] == "-i" {
+            threw_input = i;
+        }
+    }
+
+    print!("{}", points_input);
+
+    if args[1] == "--help" {
+        print_help();
+        return;
+    }
+    if args[points_input] == "-i" {
+        let mut a = 0;
+        for i in points_input+1..args.len() {
+            let num: i16 = args[i].parse().unwrap();
+            points[a] = num;
+            println!("{}", i);
+            a = a+1;
+        }
+        println!("{:?}",points);
+    }
+    if args[threw_input] == "-t" { /* for through functions */
+            let f = threw_input + 1;
+            let t = threw_input + 2;
 
             if args[f].to_lowercase() == "greater" ||
             args[f].to_lowercase() == "great" ||
             args[f].to_lowercase() == "g" {
-                greater = args[t];
+                greater = true;
+            } else if args[f].to_lowercase() == "lesser" ||
+            args[f].to_lowercase() == "less" ||
+            args[f].to_lowercase() == "l" {
+                lesser = true;
             }
-        }
+            points[0] = args[t].parse().unwrap();
+    }
+    if args.len() >= 2 {
     } else {
         /* Get Points Input */
         points = [0, 1, 4, 6];
@@ -146,7 +165,8 @@ fn main() {
         }
     }
 
+    //points = [12, 2 , 5, 7];
 
     /* Print Line */
-    print_line(&mut points); /* unable to use zero */
+    print_line(&mut points, greater, lesser); /* unable to use zero */
 }
