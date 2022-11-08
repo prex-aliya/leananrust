@@ -15,11 +15,11 @@ fn print_screen(pointx: i16, pointy: i16, point1x: i16, point1y: i16) {
     let x2: f32 = point1x.into();
     let y2: f32 = point1y.into();
     let slope: f32 = ( ((y1-y2)/(x1-x2)) ) as f32;
-    println!("{}", slope);
+    println!("Slope {}", slope);
 
     /* find y intercept or b */
     let intrecept = (slope*x1)-y1;
-    println!("{}", intrecept);
+    println!("Intercept {}", intrecept);
 
 
 
