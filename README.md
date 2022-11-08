@@ -9,7 +9,7 @@ To Build Use:
 in the directory that you want to compile.
 
 # Details of Each
-- Login Details
+## Login Details
 <details><summary>0001</summary>
 
 [easy] challenge #1
@@ -88,9 +88,29 @@ graph them on a number line.
 
 BONUS if you can do negatives
 
-ectra BONUS if you can get variables through another
+Extra BONUS if you can get variables through another
 like >3, witch prints all that is greater, upto 10;
 </details>
+
+## Line Renderer
+<details><summary>0007</summary>
+Make a 2d line renderer, with the
+user inputting two points and make a line in-between them
+
+BONUS if you can do multiple lines,
+with different colors for each.
+
+EXTRA BONUS If you can make it scale procedurally, for
+example normally if you had a number line it would look line
+
+1-2-3-4-5-6-7-8-9-10 etc.
+
+But that could not scale up reliably if, for example one of
+your points was at 100, 100, it would fill the entire screen
+and wrap.
+</details>
+
+
 # Resources
 
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) : Challenges to help learn
