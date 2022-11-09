@@ -9,8 +9,8 @@ fn print_help() {
 fn print_screen(points: [i16; 4]) {
     /* y = mx+b                        //
      * find m slope                    // Renovation Trying to
-     */                                // Plot it out first,
-                                       // as to got get twisted up.
+     */                                // Plot it out first, as to
+                                       // got get twisted up. Good Night.
     /* find y intercept or b */        //
 
 
