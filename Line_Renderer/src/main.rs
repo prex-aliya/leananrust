@@ -1,19 +1,19 @@
 use std::env;
 
 const PROGRAMENAME: &str = "2d line renderer";
-const SSIZE: i16 = 32;
+const SSIZE: i16 = 16;
 
 fn print_help() {
     println!("Usage: {} [--help/-t] [l/g] [num] [-i] [] [] [] []", PROGRAMENAME);
 }
-fn print_screen(pointx: i16, pointy: i16, point1x: i16, point1y: i16) {
+fn print_screen(points: [i16; 4]) {
     /* y = mx+b
      * find m slope
      */
-    let x1: f32 = pointx.into();
-    let y1: f32 = pointy.into();
-    let x2: f32 = point1x.into();
-    let y2: f32 = point1y.into();
+    let x1: f32 = points[0].into();
+    let y1: f32 = points[1].into();
+    let x2: f32 = points[2].into();
+    let y2: f32 = points[3].into();
     let slope: f32 = ( ((y1-y2)/(x1-x2)) ) as f32;
     println!("Slope {}", slope);
 
@@ -23,7 +23,7 @@ fn print_screen(pointx: i16, pointy: i16, point1x: i16, point1y: i16) {
 
 
 
-    for y in 0..SSIZE {
+    for y in (0..SSIZE).rev() {
         for x in 0..SSIZE {
             /* Transform current x and y into
              * float for the equation to work correctly.
@@ -32,17 +32,19 @@ fn print_screen(pointx: i16, pointy: i16, point1x: i16, point1y: i16) {
             let fy: f32 = y.into();
 
             /* sees if the x or y is equivilent to line */
-            let line = ((slope*fx)-intrecept).round();
+            let liney: i16 = ((slope*fx)-intrecept).round() as i16;
 
-            if y == pointy && x == pointx {
+            if y == points[1] && x == points[0] {
                 print!("..");
-            } else if y == point1y && x == point1x {
+            } else if y == points[3] && x == points[2] {
                 print!("..");
-            } else if fy == line {
-                print!(":)");
+            } else if y == liney {
+                print!("\x1b[36m:)\x1b[0m");
+            //} else if fy == liney.round() || fy == liney.ceil()+0.5 {
+                //print!("[:");
             } else {
-                //print!("{:2}", y);
-                print!("#@");
+                print!("{:2} ", liney);
+                //print!("#@");
             }
         }
         print!("\n");
@@ -72,5 +74,5 @@ fn main() {
         return;
     }
 
-    print_screen(points[0], points[1], points[2], points[3]);
+    print_screen(points);
 }
