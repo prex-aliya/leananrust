@@ -7,47 +7,15 @@ fn print_help() {
     println!("Usage: {} [--help/-t] [l/g] [num] [-i] [] [] [] []", PROGRAMENAME);
 }
 fn print_screen(points: [i16; 4]) {
-    /* y = mx+b
-     * find m slope
-     */
-    let x1: f32 = points[0].into();
-    let y1: f32 = points[1].into();
-    let x2: f32 = points[2].into();
-    let y2: f32 = points[3].into();
-    let slope: f32 = ( ((y1-y2)/(x1-x2)) ) as f32;
-    println!("Slope {}", slope);
-
-    /* find y intercept or b */
-    let intrecept = (slope*x1)-y1;
-    println!("Intercept {}", intrecept);
-
+    /* y = mx+b                        //
+     * find m slope                    // Renovation Trying to
+     */                                // Plot it out first,
+                                       // as to got get twisted up.
+    /* find y intercept or b */        //
 
 
     for y in (0..SSIZE).rev() {
         for x in 0..SSIZE {
-            /* Transform current x and y into
-             * float for the equation to work correctly.
-             */
-            let fx: f32 = x.into();
-            let fy: f32 = y.into();
-
-            /* sees if the x or y is equivilent to line */
-            let liney: i16 = ((slope*fx)-intrecept).round() as i16;
-
-            if y == points[1] && x == points[0] {
-                print!("..");
-            } else if y == points[3] && x == points[2] {
-                print!("..");
-            } else if y == liney {
-                print!("\x1b[36m:)\x1b[0m");
-            //} else if fy == liney.round() || fy == liney.ceil()+0.5 {
-                //print!("[:");
-            } else {
-                print!("{:2} ", liney);
-                //print!("#@");
-            }
-        }
-        print!("\n");
     }
 }
 
