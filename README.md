@@ -131,8 +131,11 @@ of 3 or 5 below 1000.
 
 # Resources
 
-- [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) : Challenges to help learn
-- [alexwanng/learn-rust-examples](https://github.com/alexwanng/learn-rust-examples) : From The Book “Programming Rust”, by Jim Blandy and Jason Orendorff
+- [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) 
+ : Challenges to help learn
+- [alexwanng/learn-rust-examples](https://github.com/alexwanng/learn-rust-examples) 
+ : From The Book “Programming Rust”, by Jim Blandy and Jason Orendorff
+- [Project Euler](https://projecteuler.net/)
 
 <!--- vim: tw=60
 -->
