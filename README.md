@@ -115,6 +115,7 @@ Make a simple application for managing your pets, using some
 sort of local file for storage, like a json file.
 
 BONUS: If you can make it a tui,
+
 EXTRA BONUS: If you make it look good :)
 
 - [Rust and TUI building with a command line interface](
