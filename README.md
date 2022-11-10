@@ -111,6 +111,10 @@ and wrap.
 </details>
 
 
+## Bookmark Maker
+<details><summary>0008</summary>
+</details>
+
 # Resources
 
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) : Challenges to help learn

@@ -1,7 +1,7 @@
 use std::env;
 
 const PROGRAMENAME: &str = "2d line renderer";
-const SSIZE: i16 = 40;
+const SSIZE: i16 = 32;
 
 fn print_help() {
     println!("Usage: {} [--help/num] [num] [num] [num]", PROGRAMENAME);
