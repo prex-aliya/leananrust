@@ -1,7 +1,7 @@
 use std::env;
 
 const PROGRAMENAME: &str = "2d line renderer";
-const SSIZE: i16 = 16;
+const SSIZE: i16 = 40;
 
 fn print_help() {
     println!("Usage: {} [--help/num] [num] [num] [num]", PROGRAMENAME);
@@ -26,7 +26,7 @@ fn calc(points: [i16; 4]) -> [f32; 2] {
     return output;
 }
 fn calc_line(x: f32, m: f32, b: f32) -> f32 {
-    let line: f32 = (m*x)+b;
+    let line: f32 = (m*x)-b;
 
     return line;
 }
@@ -58,8 +58,8 @@ fn print_screen(points: [i16; 4]) {
             } else if fy == line {
                 print!(":]");
             } else {
-               // print!("#@");
-                print!("{}", line.round());
+                print!("#@");
+                //print!("{} ", line.round());
             }
         }
         print!("\n");
