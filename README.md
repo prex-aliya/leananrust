@@ -109,6 +109,26 @@ and wrap.
 </details>
 
 
+## Mini
+<details><summary>0007</summary>
+        rustc {file to compile} -o {filename}
+
+For these, minis, I did not think that these deserve an
+entire director for all of them.
+
+I get the list from [Project Euler]
+(https://projecteuler.net/archives).
+
+### 1 - Multipals of 3 and 5
+
+If we list all the natural numbers below 10 that are
+multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of
+these multiples is 23. Find the sum of all the multiples
+of 3 or 5 below 1000.
+
+</details>
+
+
 # Resources
 
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) : Challenges to help learn
