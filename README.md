@@ -109,19 +109,6 @@ and wrap.
 </details>
 
 
-## Pet Managment
-<details><summary>0008</summary>
-Make a simple application for managing your pets, using some
-sort of local file for storage, like a json file.
-
-BONUS: If you can make it a tui
-
-EXTRA BONUS: If you make it look good :)
-
-- [Rust and TUI building with a command line interface](
-https://blog.logrocket.com/rust-and-tui-building-a-command-line-interface-in-rust/)
-
-</details
 # Resources
 
 - [r/dailyprogrammer](https://www.reddit.com/r/dailyprogrammer/) : Challenges to help learn
