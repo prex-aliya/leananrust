@@ -40,7 +40,7 @@ fn print_screen(points: [i16; 4]) {
                 || x == points[2] && y == points[3]
             {
                 print!("..");
-            } else if x == line {
+            } else if x == line-2 {
                 print!(":]");
             } else {
                 print!("#@");
