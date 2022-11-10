@@ -103,17 +103,23 @@ with different colors for each.
 EXTRA BONUS If you can make it scale procedurally, for
 example normally if you had a number line it would look line
 
-1-2-3-4-5-6-7-8-9-10 etc.
-
 But that could not scale up reliably if, for example one of
 your points was at 100, 100, it would fill the entire screen
 and wrap.
 </details>
 
 
-## Bookmark Maker
+## Pet Managment
 <details><summary>0008</summary>
-</details>
+</details
+Make a simple application for managing your pets, using some
+sort of local file for storage, like a json file.
+
+BONUS: If you can make it a tui,
+EXTRA BONUS: If you make it look good :)
+
+- [Rust and TUI building with a command line interface](
+https://blog.logrocket.com/rust-and-tui-building-a-command-line-interface-in-rust/)
 
 # Resources
 
