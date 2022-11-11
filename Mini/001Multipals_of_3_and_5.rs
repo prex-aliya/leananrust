@@ -37,7 +37,7 @@ fn print_bar(
 
 fn print_multiples(height: i8, how_much: i64) {
     let mut f: i8 = 0;
-    let mut t: i8 = 8;
+    let mut t: i8 = 0;
 
     let mut five: i8 = 0;
     let mut three: i8 = 0;
@@ -45,24 +45,24 @@ fn print_multiples(height: i8, how_much: i64) {
 
 
     for i in 0..how_much+1 {
-        if five == 5 && three == 3 {
-            three = 0;
-            five = 0;
+        if f == 5 && t == 3 {
+            t = 0;
+            f = 0;
             print!("\x1b[33m{} \x1b[0m", i);
             both += 1;
-        } else if five == 5 {
-            five = 0;
+        } else if f == 5 {
+            f = 0;
             print!("\x1b[31m{} \x1b[0m", i);
             five += 1;
-        } else if three == 3 {
-            three = 0;
+        } else if t == 3 {
+            t = 0;
             print!("\x1b[34m{} \x1b[0m", i);
             three += 1;
         } else {
             print!("{} ", i);
         }
-        five += 1;
-        three += 1;
+        f += 1;
+        t += 1;
     }
     print!("\n");
 
