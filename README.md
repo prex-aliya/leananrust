@@ -111,7 +111,7 @@ and wrap.
 
 ## Mini
 <details><summary>0007</summary>
-        rustc {file to compile} -o {filename}
+        rustc {file to compile} -o a.out
 
 For these, minis, I did not think that these deserve an
 entire director for all of them.
@@ -125,7 +125,6 @@ If we list all the natural numbers below 10 that are
 multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of
 these multiples is 23. Find the sum of all the multiples
 of 3 or 5 below 1000.
-
 </details>
 
 
