@@ -9,8 +9,10 @@ To Build Use:
 in the directory that you want to compile.
 
 # Details of Each
-## Login Details
-<details><summary>0001</summary>
+
+## Smaller
+
+<details><summary>Login Details</summary>
 
 [easy] challenge #1
 
@@ -24,8 +26,7 @@ for extra credit, have the program log this information in a file to be accessed
 </details>
 
 
-## FMA Phisics Calculator
-<details><summary>0002</summary>
+<details><summary>FMA Phisics Calculator</summary>
 [easy] challenge #2
 
 Hello, coders! An important part of programming is being able to apply your programs,
@@ -39,8 +40,8 @@ Not only should it be able to calculate F = M * A, but also A = F/M, and M = F/A
 </details>
 
 
-## Caesar Cipher
-<details><summary>0003</summary>
+<details><summary>Caesar Cipher</summary>
+
 [2/11/2012] Challenge #3 [easy]
 
 Welcome to cipher day!
@@ -51,8 +52,8 @@ This cipher can ignore numbers, symbols, and whitespace.
 for extra credit, add a "decrypt" function to your program!
 </details>
 
-## Password Generator
-<details><summary>0004</summary>
+
+<details><summary>Password Generator</summary>
 [2/12/2012] Challenge #4 [easy]
 
 You're challenge for today is to create a random password generator!
@@ -64,8 +65,7 @@ of the strings he wants to generate!
 </details>
 
 
-## Password Protected
-<details><summary>0005</summary>
+<details><summary>Password Protected</summary>
 [2/12/2012] Challenge #5 [easy]
 
 Your challenge for today is to create a program which is password protected,
@@ -76,8 +76,31 @@ For extra credit, have the user and password in a seperate .txt file.
 for even more extra credit, break into your own program :)
 </details>
 
-## Number Line Print
-<details><summary>0006</summary>
+
+<details><summary>Mini</summary>
+        rustc {file to compile} -o a.out
+
+For these, minis, I did not think that these deserve an
+entire director for all of them.
+
+I get the list from [Project Euler]
+(https://projecteuler.net/archives).
+
+
+<details><summary>1 - Multipals of 3 and 5</summary>
+
+If we list all the natural numbers below 10 that are
+multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of
+these multiples is 23. Find the sum of all the multiples
+of 3 or 5 below 1000.
+</details>
+
+
+</details>
+
+
+## 002
+<details><summary>Number Line Print</summary>
 This is a challenge I have formulated while my child was
 learning his number lines.
 
@@ -92,8 +115,8 @@ Extra BONUS if you can get variables through another
 like >3, witch prints all that is greater, upto 10;
 </details>
 
-## Line Renderer
-<details><summary>0007</summary>
+
+<details><summary>Line Renderer</summary>
 Make a 2d line renderer, with the
 user inputting two points and make a line in-between them
 
@@ -106,25 +129,6 @@ example normally if you had a number line it would look line
 But that could not scale up reliably if, for example one of
 your points was at 100, 100, it would fill the entire screen
 and wrap.
-</details>
-
-
-## Mini
-<details><summary>0007</summary>
-        rustc {file to compile} -o a.out
-
-For these, minis, I did not think that these deserve an
-entire director for all of them.
-
-I get the list from [Project Euler]
-(https://projecteuler.net/archives).
-
-### 1 - Multipals of 3 and 5
-
-If we list all the natural numbers below 10 that are
-multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of
-these multiples is 23. Find the sum of all the multiples
-of 3 or 5 below 1000.
 </details>
 
 
