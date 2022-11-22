@@ -8,6 +8,14 @@ To Build Use:
 
 in the directory that you want to compile.
 
+Some of the project, like the minis, need a different
+approach to compile them,
+
+        rustc filename -o a.out
+
+by default they compile as the file name, so i use the -o
+flag to compile it to a.out, the default output for gcc.
+
 # Details of Each
 
 ## Smaller
@@ -123,7 +131,7 @@ What is the largest prime factor of the number 600851475143 ?
 </details>
 
 
-## 002
+## Bigger
 <details><summary>Number Line Print</summary>
 This is a challenge I have formulated while my child was
 learning his number lines.
