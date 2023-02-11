@@ -171,6 +171,6 @@ and wrap.
 - [alexwanng/learn-rust-examples](https://github.com/alexwanng/learn-rust-examples) 
  : From The Book “Programming Rust”, by Jim Blandy and Jason Orendorff
 - [Project Euler](https://projecteuler.net/)
-
+- [rust official website](https://www.rust-lang.org/learn)
 <!--- vim: tw=60
 -->
