@@ -1,6 +1,14 @@
-# Learning Rust
+<h1 align="center" style="font-size:72px">LEANANRUST</h1>
 
-This is my journey learning rust, and the projects that I have made along this journey
+
+This is my journey learning rust, and the projects that I have made along this journey.
+I am a firm believer that code documents itself so the code
+presented in the files.
+
+- 001: Basics or functions of the language
+    - for example modules
+- 002: More like Ideas or Crates
+- 999: Small Projects
 
 To Build Use:
 
