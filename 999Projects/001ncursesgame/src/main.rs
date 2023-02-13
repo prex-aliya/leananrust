@@ -1,26 +1,68 @@
 use ncurses::*;
+use std::process::exit;
 
 const START_ROW: i32 = 0;
 const START_COL: i32 = 0;
 const MENU_LENGTH: i32 = 5;
 
+fn error(msg: &str) {
+    endwin();
+    eprintln!("ERROR: {}", msg);
+    exit(1);
+}
 
+/* Game {{{ */
+#[derive(Default)]
+struct Game {
+    row: i32,
+    col: i32,
+}
+impl Game {
+    fn start(&mut self, col: i32, row: i32) {
+        self.row = row;
+        self.col = col;
+
+        mv(self.row, self.col);
+    }
+    fn end(&self) {
+    }
+}
+fn game() {
+    clear();
+    addstr("GAME START");
+    let mut game: Game = Game::default();
+    'game :loop {
+        game.start(START_COL, START_ROW); /* Defines start location "and size" */
+        {
+            //game.print(); /* Print the game */
+        }
+
+        let input = getch();
+        match input as u8 as char {
+            'q' => break 'game,
+            _   => {},
+        }
+
+        game.end();
+    }
+}
+/* }}} */
 /* Menu {{{ */
 struct Menu {
     row: i32,
 }
 impl Menu {
-    fn start(&mut self, row: i32) {
-        self.row = row;
-
-        mv(self.row, 8);
-    }
+    //fn start(self) {}
     fn print(&self) {
+        let menu: Vec<&str> = vec!["START GAME", "1\t", "2\t", "3\t", "4\t", "QUIT\t"];
         for x in 0..=MENU_LENGTH {
             if self.row == x {
-                addstr("> ");
+                attron(COLOR_PAIR(1));
+                addstr(format!("\t>{}\t\n", menu[x as usize]).as_str());
+                attroff(COLOR_PAIR(1));
+            } else {
+                addstr(format!("\t {}\t\n", menu[x as usize]).as_str());
             }
-            addstr(format!("{}\n", x).as_str());
         }
     }
 
@@ -42,53 +84,32 @@ impl Menu {
             2 => { addstr("Layer 2"); },
             3 => { addstr("Layer 3"); },
             4 => { addstr("Layer 4"); },
+            5 => { addstr("Layer 5"); },
             _ => {}
         }
     }
 }
 /* Menu }}} */
-/* Game {{{ */
-#[derive(Default)]
-struct Game {
-    row: i32,
-    col: i32,
-}
-impl Game {
-    fn start(&mut self, col: i32, row: i32) {
-        self.row = row;
-        self.col = col;
-
-        mv(self.row, self.col);
-    }
-    fn end(&self) {
-    }
-}
-fn game() {
-    addstr("GAME START");
-    let mut game: Game = Game::default();
-    'game :loop {
-        game.start(START_COL, START_ROW); /* Defines start location "and size" */
-        {
-            //game.print(); /* Print the game */
-        }
-
-        let input = getch();
-        match input as u8 as char {
-            'q' => break 'game,
-            _   => {},
-        }
-
-        game.end();
-    }
-}
-/* }}} */
 
 fn main() {
     initscr();
     noecho(); /* Stops showing of input keys */
+    curs_set(CURSOR_VISIBILITY::CURSOR_INVISIBLE);
+    /* Makes The Terminal Cursor Invisible */
 
-    println!("Hello, world!");
+    start_color();
+    /* Exits if terminal doesnt suport color */
+    if has_colors() == false {
+        endwin();
+        error("Terminal Does not support color");
+    }
 
+    /*      pair  forground   background */
+    init_pair(1, COLOR_BLACK, COLOR_WHITE);
+    init_pair(2, COLOR_WHITE, COLOR_BLACK);
+
+
+    /* Initilize Menu */
     let mut menu: Menu = Menu {row: 0 };
 
     'main :loop {
@@ -103,8 +124,10 @@ fn main() {
             '\n' => { menu.select(); },
             _ => {}
         }
-        addstr(format!("{}", menu.row).as_str());
     }
 
     endwin(); /* Restores terminal behavior */
 }
+
+#[cfg(test)]
+mod test;
