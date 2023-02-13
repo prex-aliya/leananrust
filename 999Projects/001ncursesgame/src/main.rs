@@ -24,22 +24,43 @@ impl Game {
 
         mv(self.row, self.col);
     }
+
+    fn print(&self, map: &mut Vec<u8>) {
+        for row in 0..32 {
+            for col in 0..32 {
+                if map[col] == 1 {
+                    addstr("@@@@");
+                } else {
+                    addstr("####");
+                }
+            }
+            addch('\n' as u32);
+        }
+    }
+
     fn end(&self) {
     }
 }
 fn game() {
     clear();
     addstr("GAME START");
+
     let mut game: Game = Game::default();
+    let mut map: Vec<u8> = vec![1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
     'game :loop {
         game.start(START_COL, START_ROW); /* Defines start location "and size" */
         {
-            //game.print(); /* Print the game */
+            game.print(&mut map); /* Print the game */
         }
 
         let input = getch();
         match input as u8 as char {
             'q' => break 'game,
+            'w'|'k' => {},
+            's'|'j' => {},
+            'a'|'h' => {},
+            'd'|'l' => {},
             _   => {},
         }
 
